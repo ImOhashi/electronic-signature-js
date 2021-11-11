@@ -2,6 +2,9 @@ import { Model } from "mongoose";
 
 import BaseRepository from "./BaseRepository.js";
 
+/**
+ * @public
+ */
 export class SignatureRepository extends BaseRepository {
   /**
    * @public
