@@ -5,6 +5,7 @@ import { SignatureModel } from "../models/index.js";
 
 /**
  * @public
+ * @extends BaseRepository
  */
 class SignatureRepository extends BaseRepository {
   /**
