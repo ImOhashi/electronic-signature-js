@@ -1,3 +1,4 @@
+import { SignatureServiceError } from "../errors/index.js";
 import signatureRepository from "../repositories/SignatureRepository.js";
 
 /**
@@ -23,7 +24,19 @@ class SignatureService {
    * @returns {object}
    */
   async getByName(signatureName) {
-    return signatureRepository.getByName(signatureName);
+    if (signatureName.length() > 5 && signatureName instanceof string) {
+      const signature = signatureRepository.getByName(signatureName);
+
+      if (signature) {
+        return signature;
+      } else {
+        throw new SignatureServiceError("Register not found");
+      }
+    } else {
+      throw new SignatureServiceError(
+        "Number of characters less than accepted"
+      );
+    }
   }
 
   /**
