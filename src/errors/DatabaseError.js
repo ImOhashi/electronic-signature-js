@@ -1,3 +1,7 @@
+/**
+ * @public
+ * @extends {Error}
+ */
 export class DatabaseError extends Error {
   /**
    * @public

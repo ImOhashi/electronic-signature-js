@@ -1,13 +1,17 @@
 import mongoose from "mongoose";
 
-import { DatabaseError } from "../error/index.js";
+import { DatabaseError } from "../errors/index.js";
 
+/**
+ * @public
+ */
 class Connect {
   /**
    * @public
    * @memberof Connect
    * @method connect
    * @returns {void}
+   * @throws {DatabaseError}
    */
   connect() {
     mongoose.connect(
