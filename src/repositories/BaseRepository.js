@@ -17,6 +17,7 @@ export default class BaseRepository {
   /**
    * @public
    * @memberof BaseRepository
+   * @method get
    * @param {string} id
    * @returns {object}
    */
@@ -29,6 +30,7 @@ export default class BaseRepository {
   /**
    * @public
    * @memberof BaseRepository
+   * @method getAll
    * @returns {[object]}
    */
   async getAll() {
@@ -38,6 +40,7 @@ export default class BaseRepository {
   /**
    * @public
    * @memberof BaseRepository
+   * @method create
    * @param {object} model
    * @returns {object}
    */
@@ -48,6 +51,7 @@ export default class BaseRepository {
   /**
    * @public
    * @memberof BaseRepository
+   * @method update
    * @param {string} id
    * @param {object} model
    * @returns {object}
@@ -63,6 +67,7 @@ export default class BaseRepository {
   /**
    * @public
    * @memberof BaseRepository
+   * @method delete
    * @param {string} id
    * @returns {object}
    */

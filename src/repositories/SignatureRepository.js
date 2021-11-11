@@ -1,11 +1,12 @@
 import { Model } from "mongoose";
 
 import BaseRepository from "./BaseRepository.js";
+import { SignatureModel } from "../models/index.js";
 
 /**
  * @public
  */
-export class SignatureRepository extends BaseRepository {
+class SignatureRepository extends BaseRepository {
   /**
    * @public
    * @memberof SignatureRepository
@@ -19,6 +20,7 @@ export class SignatureRepository extends BaseRepository {
   /**
    * @public
    * @memberof SignatureRepository
+   * @method getByName
    * @param {string} signatureName
    * @returns {object}
    */
@@ -28,3 +30,5 @@ export class SignatureRepository extends BaseRepository {
     });
   }
 }
+
+export default new SignatureRepository(SignatureModel);
