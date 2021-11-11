@@ -3,6 +3,9 @@ import dotenv from "dotenv";
 
 import database from "./database/connect.js";
 
+/**
+ * @public
+ */
 class App {
 
   /**
