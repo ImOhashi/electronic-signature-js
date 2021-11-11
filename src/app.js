@@ -2,12 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 
 import database from "./database/connect.js";
+import router from "./routes/index.js";
 
 /**
  * @public
  */
 class App {
-
   /**
    * @private
    * @memberof App
@@ -38,6 +38,7 @@ class App {
         extended: false,
       })
     );
+    this.app.use(router);
   }
 }
 
