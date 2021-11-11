@@ -7,6 +7,7 @@ class App {
 
   /**
    * @private
+   * @memberof App
    * @constructor
    */
   constructor() {

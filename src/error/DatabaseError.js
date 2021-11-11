@@ -1,6 +1,7 @@
 export class DatabaseError extends Error {
   /**
    * @public
+   * @memberof DatabaseError
    * @constructor
    * @param {string} paramName
    */
