@@ -4,7 +4,16 @@
  * @memberof httpStatus
  */
 export default {
-    ok: {
-        status: 200
-    }
-}
+  OK: {
+    status: 200,
+  },
+  CREATED: {
+    status: 201,
+  },
+  NOT_FOUND: {
+    status: 404,
+  },
+  INTERNAL_SERVER_ERROR: {
+    status: 500,
+  },
+};

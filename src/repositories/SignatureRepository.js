@@ -1,4 +1,4 @@
-import { Model } from "mongoose";
+import mongoose from "mongoose";
 
 import BaseRepository from "./BaseRepository.js";
 import { SignatureModel } from "../models/index.js";
@@ -12,7 +12,7 @@ class SignatureRepository extends BaseRepository {
    * @public
    * @memberof SignatureRepository
    * @constructor
-   * @param {Model} model
+   * @param {mongoose.Models} model
    */
   constructor(signatureModel) {
     super(signatureModel);

@@ -1,4 +1,4 @@
-import { Model } from "mongoose";
+import mongoose from "mongoose";
 
 /**
  * @public
@@ -8,7 +8,7 @@ export default class BaseRepository {
    * @public
    * @memberof BaseRepository
    * @constructor
-   * @param {Model} model
+   * @param {mongoose.Model} model
    */
   constructor(model) {
     this.model = model;

@@ -9,11 +9,11 @@ class SignatureService {
    * @public
    * @memberof SignatureService
    * @method get
-   * @param {string} id
+   * @param {String} id
    * @returns {object}
    */
   async get(id) {
-    if (id && id instanceof string) {
+    if (id) {
       const signature = await signatureRepository.get(id);
 
       if (signature) {
@@ -62,6 +62,18 @@ class SignatureService {
       return allSignatures;
     } else {
       throw new SignatureServiceError("There are no registered subscriptions");
+    }
+  }
+
+  async create(model) {
+    if (model) {
+      const newSignature = await signatureRepository.create(model);
+
+      return newSignature;
+    } else {
+      throw new SignatureServiceError(
+        "impossible to register new subscription"
+      );
     }
   }
 }

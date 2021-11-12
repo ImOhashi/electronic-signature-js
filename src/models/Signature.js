@@ -29,6 +29,6 @@ const SignatureSchema = new mongoose.Schema({
   },
 });
 
-const SignatureModel = mongoose.Model("SignatureModel", SignatureSchema);
+const SignatureModel = mongoose.model("SignatureModel", SignatureSchema);
 
 export { SignatureModel };
