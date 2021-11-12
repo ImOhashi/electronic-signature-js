@@ -2,6 +2,9 @@ import express from "express";
 
 import http from "../enums/httpStatus.js";
 
+/**
+ * @public
+ */
 class Router {
   /**
    * @public

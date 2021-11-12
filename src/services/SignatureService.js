@@ -13,7 +13,17 @@ class SignatureService {
    * @returns {object}
    */
   async get(id) {
-    return signatureRepository.get(id);
+    if (id && id instanceof string) {
+      const signature = await signatureRepository.get(id);
+
+      if (signature) {
+        return signature;
+      } else {
+        throw new SignatureServiceError("Register not found");
+      }
+    } else {
+      throw new SignatureServiceError("Entered id is invalid");
+    }
   }
 
   /**
@@ -25,7 +35,7 @@ class SignatureService {
    */
   async getByName(signatureName) {
     if (signatureName.length() > 5 && signatureName instanceof string) {
-      const signature = signatureRepository.getByName(signatureName);
+      const signature = await signatureRepository.getByName(signatureName);
 
       if (signature) {
         return signature;
@@ -46,7 +56,13 @@ class SignatureService {
    * @returns {[object]}
    */
   async getAll() {
-    return signatureRepository.getAll();
+    const allSignatures = await signatureRepository.getAll();
+
+    if (allSignatures.length() > 0) {
+      return allSignatures;
+    } else {
+      throw new SignatureServiceError("There are no registered subscriptions");
+    }
   }
 }
 
