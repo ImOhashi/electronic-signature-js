@@ -17,19 +17,6 @@ class SignatureRepository extends BaseRepository {
   constructor(signatureModel) {
     super(signatureModel);
   }
-
-  /**
-   * @public
-   * @memberof SignatureRepository
-   * @method getByName
-   * @param {string} signatureName
-   * @returns {object}
-   */
-  async getByName(signatureName) {
-    return this.model.findOne({
-      fullname: signatureName,
-    });
-  }
 }
 
 export default new SignatureRepository(SignatureModel);

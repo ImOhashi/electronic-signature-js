@@ -10,7 +10,7 @@ class SignatureService {
    * @memberof SignatureService
    * @method get
    * @param {String} id
-   * @returns {object}
+   * @returns {import("../models/Signature.js"}
    */
   async get(id) {
     if (id) {
@@ -31,7 +31,7 @@ class SignatureService {
    * @memberof SignatureService
    * @method getByName
    * @param {string} signatureName
-   * @returns {object}
+   * @returns {import("../models/Signature.js"}
    */
   async getByName(signatureName) {
     if (signatureName.length() > 5 && signatureName instanceof string) {
@@ -53,18 +53,24 @@ class SignatureService {
    * @public
    * @memberof SignatureService
    * @method getAll
-   * @returns {[object]}
+   * @returns {[import("../models/Signature.js"]}
    */
   async getAll() {
     const allSignatures = await signatureRepository.getAll();
 
-    if (allSignatures.length() > 0) {
+    if (allSignatures.length > 0) {
       return allSignatures;
     } else {
       throw new SignatureServiceError("There are no registered subscriptions");
     }
   }
 
+  /**
+   * @public
+   * @memberof SignatureService
+   * @param {import("../models/Signature.js")} model
+   * @returns {import("../models/Signature.js"}
+   */
   async create(model) {
     if (model) {
       const newSignature = await signatureRepository.create(model);

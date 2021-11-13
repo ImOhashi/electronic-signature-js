@@ -31,6 +31,26 @@ class SignatureController {
   /**
    * @public
    * @memberof SignatureController
+   * @method getAll
+   * @param {import("express").Request} req
+   * @param {import("express").Request} res
+   * @returns {[import("../models/Signature.js"]}
+   */
+  async getAll(req, res) {
+    const allSignatures = await signatureService.getAll();
+
+    if (!allSignatures) {
+      return res
+        .status(httpStatus.NOT_FOUND.status)
+        .json(new SignatureControllerError("Not found signatures"));
+    } else {
+      return res.status(httpStatus.OK.status).json(allSignatures);
+    }
+  }
+
+  /**
+   * @public
+   * @memberof SignatureController
    * @method create
    * @param {import("express").Request} req
    * @param {import("express").Response} res

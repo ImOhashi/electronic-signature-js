@@ -26,6 +26,7 @@ class SignatureRouter {
   setRoutes() {
     this.router
       .get("/:id", signatureController.get)
+      .get("/", signatureController.getAll)
       .post("/", signatureController.create);
   }
 }
