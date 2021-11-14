@@ -29,29 +29,6 @@ class SignatureService {
   /**
    * @public
    * @memberof SignatureService
-   * @method getByName
-   * @param {string} signatureName
-   * @returns {import("../models/Signature.js"}
-   */
-  async getByName(signatureName) {
-    if (signatureName.length() > 5 && signatureName instanceof string) {
-      const signature = await signatureRepository.getByName(signatureName);
-
-      if (signature) {
-        return signature;
-      } else {
-        throw new SignatureServiceError("Register not found");
-      }
-    } else {
-      throw new SignatureServiceError(
-        "Number of characters less than accepted"
-      );
-    }
-  }
-
-  /**
-   * @public
-   * @memberof SignatureService
    * @method getAll
    * @returns {[import("../models/Signature.js"]}
    */
