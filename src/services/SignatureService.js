@@ -45,6 +45,7 @@ class SignatureService {
   /**
    * @public
    * @memberof SignatureService
+   * @method create
    * @param {import("../models/Signature.js")} model
    * @returns {import("../models/Signature.js"}
    */
@@ -57,6 +58,41 @@ class SignatureService {
       throw new SignatureServiceError(
         "impossible to register new subscription"
       );
+    }
+  }
+
+  /**
+   * @public
+   * @memberof SignatureService
+   * @method update
+   * @param {string} id
+   * @param {import("../models/Signature.js")} model
+   * @returns {import("../models/Signature.js")}
+   */
+  async update(id, model) {
+    if (id && model) {
+      const newSignature = await signatureRepository.update(id, model);
+
+      return newSignature;
+    } else {
+      throw new SignatureServiceError(
+        "Incomplete data, impossible to update data"
+      );
+    }
+  }
+
+  /**
+   * @public
+   * @memberof SignatureService
+   * @method delete
+   * @param {string} id 
+   * @returns {import("../models/Signature.js")}
+   */
+  async delete(id) {
+    if(id) {
+      return signatureRepository.delete(id);
+    } else {
+      throw new SignatureServiceError("Id not found");
     }
   }
 }

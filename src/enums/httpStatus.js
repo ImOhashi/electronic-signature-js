@@ -16,4 +16,7 @@ export default {
   INTERNAL_SERVER_ERROR: {
     status: 500,
   },
+  NO_CONTENT: {
+    status: 204
+  }
 };

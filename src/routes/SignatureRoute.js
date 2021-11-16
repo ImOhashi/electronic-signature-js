@@ -27,7 +27,9 @@ class SignatureRouter {
     this.router
       .get("/:id", signatureController.get)
       .get("/", signatureController.getAll)
-      .post("/", signatureController.create);
+      .post("/", signatureController.create)
+      .put("/:id", signatureController.update)
+      .delete("/:id", signatureController.delete);
   }
 }
 

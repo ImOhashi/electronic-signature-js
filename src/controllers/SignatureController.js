@@ -63,8 +63,51 @@ class SignatureController {
       return res.status(httpStatus.CREATED.status).json(newSignature);
     } else {
       return res
-        .status(httpStatus.INTERNAL_SERVER_ERROR)
+        .status(httpStatus.INTERNAL_SERVER_ERROR.status)
         .json(new SignatureControllerError("Request body not informed"));
+    }
+  }
+
+  /**
+   * @public
+   * @memberof SignatureController
+   * @method update
+   * @param {import("express").Request} req
+   * @param {import("express").Response} res
+   * @returns {import("express").Response}
+   */
+  async update(req, res) {
+    if (req.params.id && req.body) {
+      const newSignature = await signatureService.update(
+        req.params.id,
+        req.body
+      );
+
+      return res.status(httpStatus.CREATED.status).json(newSignature);
+    } else {
+      return res
+        .status(httpStatus.NOT_FOUND.status)
+        .json(new SignatureControllerError("Request body or header not found"));
+    }
+  }
+
+  /**
+   * @public
+   * @memberof SignatureController
+   * @method delete
+   * @param {import("express").Request} req
+   * @param {import("express").Response} res
+   * @returns {import("express").Response}
+   */
+  async delete(req, res) {
+    if (req.params.id) {
+      const deletedSignature = await signatureService.delete(req.params.id);
+
+      return res.status(httpStatus.NO_CONTENT.status).json(deletedSignature);
+    } else {
+      return res
+        .status(httpStatus.INTERNAL_SERVER_ERROR.status)
+        .json(new SignatureControllerError("Requested id not found"));
     }
   }
 }
